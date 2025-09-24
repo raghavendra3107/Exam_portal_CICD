@@ -21,12 +21,7 @@ function Navbar() {
               </>
             )}
             {isAuthenticated && role === 'teacher' && (
-              <>
-                <NavLink to="/teacher" className={({ isActive }) => `hover:text-blue-600 ${isActive ? 'text-blue-600' : 'text-gray-700'}`}>Teacher</NavLink>
-              </>
-            )}
-            {isAuthenticated && role === 'admin' && (
-              <NavLink to="/admin" className={({ isActive }) => `hover:text-blue-600 ${isActive ? 'text-blue-600' : 'text-gray-700'}`}>Admin</NavLink>
+              <NavLink to="/teacher" className={({ isActive }) => `hover:text-blue-600 ${isActive ? 'text-blue-600' : 'text-gray-700'}`}>Teacher</NavLink>
             )}
           </nav>
           <div className="flex items-center gap-3">

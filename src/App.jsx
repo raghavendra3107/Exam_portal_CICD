@@ -8,12 +8,22 @@ import RegisterPage from './pages/RegisterPage.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ExamPage from './pages/ExamPage.jsx'
 import ResultsPage from './pages/ResultsPage.jsx'
-import AdminPage from './pages/AdminPage.jsx'
 import StudentLoginPage from './pages/StudentLoginPage.jsx'
-import AdminLoginPage from './pages/AdminLoginPage.jsx'
 import LoginOptions from './pages/LoginOptions.jsx'
 import TeacherLoginPage from './pages/TeacherLoginPage.jsx'
 import TeacherDashboard from './pages/TeacherDashboard.jsx'
+import TeacherLayout from './components/TeacherLayout.jsx'
+import CategoriesList from './pages/CategoriesList.jsx'
+import CategoryForm from './pages/CategoryForm.jsx'
+import QuizzesList from './pages/QuizzesList.jsx'
+import QuizForm from './pages/QuizForm.jsx'
+import QuestionsList from './pages/QuestionsList.jsx'
+import QuestionForm from './pages/QuestionForm.jsx'
+import TeacherReportPage from './pages/TeacherReportPage.jsx'
+import StudentLayout from './components/StudentLayout.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
+import ReportCardPage from './pages/ReportCardPage.jsx'
+import AllQuizzesPage from './pages/AllQuizzesPage.jsx'
 
 function App() {
   return (
@@ -24,17 +34,23 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginOptions />} />
           <Route path="/login/student" element={<StudentLoginPage />} />
-          <Route path="/login/admin" element={<AdminLoginPage />} />
           <Route path="/login/teacher" element={<TeacherLoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/dashboard"
             element={
               <ProtectedRoute allowedRoles={['student']}>
-                <Dashboard />
+                <StudentLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<ProfilePage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="report" element={<ReportCardPage />} />
+            <Route path="quizzes" element={<AllQuizzesPage />} />
+            <Route path="programming" element={<AllQuizzesPage />} />
+            <Route path="aptitude" element={<AllQuizzesPage />} />
+          </Route>
           <Route
             path="/exam"
             element={
@@ -52,21 +68,27 @@ function App() {
             }
           />
           <Route
-            path="/admin"
-            element={
-              <ProtectedRoute allowedRoles={['admin']}>
-                <AdminPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/teacher"
             element={
               <ProtectedRoute allowedRoles={['teacher']}>
-                <TeacherDashboard />
+                <TeacherLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<ProfilePage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="categories" element={<CategoriesList />} />
+            <Route path="categories/new" element={<CategoryForm />} />
+            <Route path="categories/edit/:id" element={<CategoryForm />} />
+            <Route path="quizzes" element={<QuizzesList />} />
+            <Route path="quizzes/new" element={<QuizForm />} />
+            <Route path="quizzes/edit/:id" element={<QuizForm />} />
+            <Route path="questions" element={<QuizzesList />} />
+            <Route path="questions/:quizId" element={<QuestionsList />} />
+            <Route path="questions/:quizId/new" element={<QuestionForm />} />
+            <Route path="questions/:quizId/edit/:id" element={<QuestionForm />} />
+            <Route path="report" element={<TeacherReportPage />} />
+          </Route>
         </Routes>
       </div>
       <Footer />

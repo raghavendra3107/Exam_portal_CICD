@@ -1,12 +1,43 @@
-# React + Vite
+# Exam Portal — Frontend (Vite) + Backend (Spring Boot)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Frontend
 
-Currently, two official plugins are available:
+Run locally:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Create `.env.local` in project root:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+VITE_API_BASE=http://localhost:8080
+```
+
+## Backend (Spring Boot 3.5.6 + MySQL)
+
+Prerequisites:
+- JDK 17+
+- Maven 3.9+
+- MySQL with database created: `exam_portal`
+
+Configuration via environment variables (optional):
+
+```
+DB_USERNAME=your_mysql_user
+DB_PASSWORD=your_mysql_password
+CORS_ORIGIN=http://localhost:5173
+PORT=8080
+```
+
+Start backend:
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+Seeded demo users:
+- Student: `student@example.com` / `student123`
+- Teacher: `teacher` / `teacher123`

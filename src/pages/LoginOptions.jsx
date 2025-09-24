@@ -9,7 +9,6 @@ function LoginOptions() {
           <p className="mt-2 text-sm text-gray-600">Choose how you want to sign in</p>
           <div className="mt-6 grid grid-cols-1 gap-3">
             <Link to="/login/student" className="w-full rounded-md bg-green-600 py-2 text-white font-medium hover:bg-green-700">Student Login</Link>
-            <Link to="/login/admin" className="w-full rounded-md bg-gray-800 py-2 text-white font-medium hover:bg-gray-900">Admin Login</Link>
             <Link to="/login/teacher" className="w-full rounded-md bg-blue-600 py-2 text-white font-medium hover:bg-blue-700">Teacher Login</Link>
           </div>
           <p className="mt-6 text-sm text-gray-600">
